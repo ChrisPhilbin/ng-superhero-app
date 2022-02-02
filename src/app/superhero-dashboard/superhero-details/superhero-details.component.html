@@ -1,0 +1,113 @@
+<section>
+  <div class="container mb-6">
+    <div *ngIf="details && !loading">
+      <div class="columns mt-6">
+        <div class="column is-two-fifths mb-auto mt-auto">
+          <img [src]="details.images.lg" class="hero-image" />
+        </div>
+
+        <div class="column is-three-fifths">
+          <p class="is-size-2 hero-title">{{ details.name }}</p>
+          <p>{{ details.work.occupation }}</p>
+
+          <p class="details-subheader">Appearance</p>
+          <div class="details-container">
+            <p><strong>Race:</strong> {{ details.appearance.race }}</p>
+            <p><strong>Gender:</strong> {{ details.appearance.gender }}</p>
+            <p><strong>Eye color:</strong> {{ details.appearance.eyeColor }}</p>
+            <p>
+              <strong>Hair color:</strong> {{ details.appearance.hairColor }}
+            </p>
+            <p>
+              <strong>Height:</strong> {{ details.appearance.height[0] }} / ({{
+                details.appearance.height[1]
+              }})
+            </p>
+            <p>
+              <strong>Weight:</strong> {{ details.appearance.weight[0] }} / ({{
+                details.appearance.weight[1]
+              }})
+            </p>
+          </div>
+          <p class="details-subheader">Biographical Information</p>
+          <div class="details-container">
+            <p><strong>Full name:</strong> {{ details.biography.fullName }}</p>
+            <p><strong>Aliases:</strong></p>
+            <div class="details-container">
+              <p *ngFor="let nickName of details.biography.aliases">
+                {{ nickName }}
+              </p>
+            </div>
+            <p>
+              <strong>Alter egos:</strong> {{ details.biography.alterEgos }}
+            </p>
+            <p>
+              <strong>First appearance:</strong>
+              {{ details.biography.firstAppearance }}
+            </p>
+            <p class="details-subheader">Power Stats</p>
+
+            <div class="stats-container">
+              <strong>Intelligence</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.intelligence"
+                max="100"
+              >
+                {{ details.powerstats.intelligence + "%" }}
+              </progress>
+
+              <strong>Strength</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.strength"
+                max="100"
+              >
+                {{ details.powerstats.strength + "%" }}
+              </progress>
+
+              <strong>Speed</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.speed"
+                max="100"
+              >
+                {{ details.powerstats.speed + "%" }}
+              </progress>
+
+              <strong>Durability</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.durability"
+                max="100"
+              >
+                {{ details.powerstats.durability + "%" }}
+              </progress>
+
+              <strong>Power</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.power"
+                max="100"
+              >
+                {{ details.powerstats.power + "%" }}
+              </progress>
+
+              <strong>Combat</strong>
+              <progress
+                class="progress is-danger"
+                [value]="details.powerstats.combat"
+                max="100"
+              >
+                {{ details.powerstats.combat + "%" }}
+              </progress>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="has-text-centered">
+    <strong>Loading... Please wait...</strong>
+  </div>
+</section>

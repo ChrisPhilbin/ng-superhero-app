@@ -1,0 +1,23 @@
+<a [routerLink]="['/superheros/' + superhero.id]" routerLinkActive="active">
+  <div class="column">
+    <div class="card">
+      <div class="card-image has-text-centered mt-1">
+        <img [src]="superhero.images.md" [alt]="superhero.name" />
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{ superhero.name }}</p>
+          </div>
+        </div>
+
+        <div class="hero-card-content">
+          <p class="has-text-weight-bold">Aliases:</p>
+          <p *ngFor="let alias of superhero.biography.aliases">
+            {{ alias }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

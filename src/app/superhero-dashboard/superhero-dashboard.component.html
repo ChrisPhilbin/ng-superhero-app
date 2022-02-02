@@ -1,0 +1,16 @@
+<header>
+  <div class="container">
+    <p class="title is-1 has-text-centered p-4">Marvel Cinematic Universe</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="columns is-multiline all-heros">
+      <app-superhero-card
+        *ngFor="let superheroEl of heros"
+        [superhero]="superheroEl"
+      ></app-superhero-card>
+    </div>
+  </div>
+</section>
