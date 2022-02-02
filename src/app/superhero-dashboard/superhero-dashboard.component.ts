@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Superhero } from '../superhero.model';
 import { SuperheroService } from '../superhero.service';
 
@@ -13,10 +12,7 @@ export class SuperheroDashboardComponent implements OnInit {
   heros: Superhero[] = [];
   error = null;
 
-  constructor(
-    private http: HttpClient,
-    private superheroService: SuperheroService
-  ) {}
+  constructor(private superheroService: SuperheroService) {}
 
   ngOnInit(): void {
     document.title = 'Superhero Dashboard';

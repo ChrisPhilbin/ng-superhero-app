@@ -10,7 +10,9 @@ import { SuperheroService } from 'src/app/superhero.service';
   styleUrls: ['./superhero-details.component.css'],
 })
 export class SuperheroDetailsComponent implements OnInit {
-  superheroId: string | null = this.route.snapshot.paramMap.get('id');
+  // superheroId: string | null = this.route.snapshot.paramMap.get('id');
+  //.get can return either string or null - you can implicitly typecast the returned value as follows:
+  superheroId = this.route.snapshot.paramMap.get('id') as string;
   loading: boolean = false;
   error: boolean = false;
   details: Superhero;
