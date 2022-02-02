@@ -15,4 +15,10 @@ export class SuperheroService {
   getAllSuperheros(): Observable<Superhero[]> {
     return this.http.get<Superhero[]>(this.superherosApiUrl);
   }
+
+  getOneSuperheroDetails(superheroId: string | null): Observable<Superhero> {
+    return this.http.get<Superhero>(
+      `https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/${superheroId}.json`
+    );
+  }
 }
